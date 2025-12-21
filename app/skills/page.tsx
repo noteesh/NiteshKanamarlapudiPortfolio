@@ -82,7 +82,7 @@ export default function Skills() {
     <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <SectionWrapper>
-          <h1 className="text-5xl font-bold mb-4 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+          <h1 className="text-5xl font-bold mb-4 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text pb-2">
             Skills & Technologies
           </h1>
           <p className="text-xl text-gray-400 text-center mb-16">
