@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaAws } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaAws, FaFlask } from 'react-icons/fa';
 import { SiPython, SiJavascript, SiReact, SiTensorflow, SiPytorch, SiAmazon, SiDocker } from 'react-icons/si';
 import SectionWrapper from '@/components/SectionWrapper';
 import Footer from '@/components/Footer';
@@ -339,8 +339,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Preview */}
+      {/* Featured Research Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
+        <div className="max-w-6xl mx-auto">
+          <SectionWrapper>
+            <h2 className="text-4xl font-bold mb-12 text-center">Featured Research</h2>
+            <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-4xl mx-auto">
+              {/* Multiplayer Coding Research */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-green-500 transition-colors"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <FaFlask size={36} className="text-green-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Multiplayer Coding Efficacy Research</h3>
+                <p className="text-green-400 font-semibold mb-1 text-sm">NCSU Game2Learn Research Lab</p>
+                <p className="text-gray-400 mb-3 text-sm">Dec 2023 - Jun 2024</p>
+                <p className="text-gray-300 text-sm mb-3">
+                  Studied the efficacy of multiplayer coding games for teaching elementary programming concepts to young students
+                </p>
+                <p className="text-gray-400 text-xs italic">
+                  Mentor: Yasitha Rajapaksha, Ph.D. Student
+                </p>
+              </motion.div>
+
+              {/* Network Security Research */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-green-500 transition-colors"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <FaFlask size={36} className="text-green-400" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Dual-Stack Network Navigation & Security</h3>
+                <p className="text-green-400 font-semibold mb-1 text-sm">Network Security & AI Research</p>
+                <p className="text-gray-400 mb-3 text-sm">Aug 2023 - Feb 2024</p>
+                <p className="text-gray-300 text-sm mb-3">
+                  Developed Python-based network monitoring tool using Scapy for packet analysis and malicious user detection
+                </p>
+                <p className="text-gray-400 text-xs italic">
+                  Mentor: Dr. Yuchen Liu
+                </p>
+              </motion.div>
+            </div>
+            <div className="text-center">
+              <Link
+                href="/research"
+                className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium"
+              >
+                View All Research
+                <FaArrowRight className="ml-2" />
+              </Link>
+            </div>
+          </SectionWrapper>
+        </div>
+      </section>
+
+      {/* Contact Preview */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <SectionWrapper>
             <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
