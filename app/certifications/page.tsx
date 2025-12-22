@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import SectionWrapper from '@/components/SectionWrapper';
-import { FaAws, FaGraduationCap, FaExternalLinkAlt, FaArrowRight, FaAward, FaClipboardCheck } from 'react-icons/fa';
+import { FaAws, FaGraduationCap, FaExternalLinkAlt, FaArrowRight, FaAward } from 'react-icons/fa';
 import Footer from '@/components/Footer';
 
 const certifications = [
@@ -29,29 +29,6 @@ const certifications = [
     iconImage: '/images/McGraw Hill-logo.svg',
     description: 'Advanced Excel skills including data analysis and automation',
     link: 'https://certificates.simnetonline.com/0953cb78-6bc5-4f07-8cfa-e2db7848a690#acc.wec6jTR7',
-  },
-];
-
-const researchCertifications = [
-  {
-    title: 'CITI Conflicts of Interest',
-    issuer: 'CITI Program',
-    description: 'Research ethics and conflicts of interest management',
-  },
-  {
-    title: 'CITI Human Subject Research',
-    issuer: 'CITI Program',
-    description: 'Ethical principles and regulations for human subjects research',
-  },
-  {
-    title: 'CITI Responsible Conduct of Research',
-    issuer: 'CITI Program',
-    description: 'Research integrity and responsible research practices',
-  },
-  {
-    title: 'CITI Social, Behavioral and Educational Research Good Clinical Practices',
-    issuer: 'CITI Program',
-    description: 'Good clinical practices for social and behavioral research',
   },
 ];
 
@@ -145,29 +122,8 @@ export default function Certifications() {
           </div>
         </SectionWrapper>
 
-        {/* Research Certifications */}
-        <SectionWrapper delay={0.2}>
-          <h2 className="text-3xl font-bold mb-8 mt-16 text-white flex items-center">
-            <FaClipboardCheck className="mr-3 text-blue-400" />
-            Research Licenses
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {researchCertifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-all"
-              >
-                <h3 className="text-lg font-bold text-white mb-2">{cert.title}</h3>
-                <p className="text-blue-400 font-semibold mb-2 text-sm">{cert.issuer}</p>
-                <p className="text-gray-400 text-sm">{cert.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </SectionWrapper>
-
         {/* Education */}
-        <SectionWrapper delay={0.3}>
+        <SectionWrapper delay={0.2}>
           <h2 className="text-3xl font-bold mb-8 mt-16 text-white flex items-center">
             <FaGraduationCap className="mr-3 text-blue-400" />
             Education
@@ -191,7 +147,7 @@ export default function Certifications() {
         </SectionWrapper>
 
         {/* Relevant Coursework */}
-        <SectionWrapper delay={0.4}>
+        <SectionWrapper delay={0.3}>
           <h2 className="text-3xl font-bold mb-8 mt-16 text-white">Relevant Coursework</h2>
           <div className="bg-gray-800 rounded-lg p-8 border border-gray-700">
             <div className="grid md:grid-cols-2 gap-4">
@@ -213,7 +169,7 @@ export default function Certifications() {
         </SectionWrapper>
 
         {/* Organizations */}
-        <SectionWrapper delay={0.5}>
+        <SectionWrapper delay={0.4}>
           <h2 className="text-3xl font-bold mb-8 mt-16 text-white">Campus Involvement</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {organizations.map((org, index) => (
@@ -232,7 +188,7 @@ export default function Certifications() {
         {/* Contact Preview */}
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <SectionWrapper delay={0.6}>
+            <SectionWrapper delay={0.5}>
               <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
               <p className="text-xl text-gray-400 mb-8">
                 Please reach out to learn more about me!
