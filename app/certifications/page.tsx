@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import SectionWrapper from '@/components/SectionWrapper';
-import { FaAws, FaCertificate, FaGraduationCap, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import { FaAws, FaGraduationCap, FaExternalLinkAlt, FaArrowRight, FaAward, FaClipboardCheck } from 'react-icons/fa';
 import Footer from '@/components/Footer';
 
 const certifications = [
@@ -95,7 +95,7 @@ export default function Certifications() {
         {/* Certifications */}
         <SectionWrapper delay={0.1}>
           <h2 className="text-3xl font-bold mb-8 text-white flex items-center">
-            <FaCertificate className="mr-3 text-blue-400" />
+            <FaAward className="mr-3 text-blue-400" />
             Certifications
           </h2>
           <div className="space-y-6">
@@ -148,8 +148,8 @@ export default function Certifications() {
         {/* Research Certifications */}
         <SectionWrapper delay={0.2}>
           <h2 className="text-3xl font-bold mb-8 mt-16 text-white flex items-center">
-            <FaCertificate className="mr-3 text-blue-400" />
-            Research Certifications & Licenses
+            <FaClipboardCheck className="mr-3 text-blue-400" />
+            Research Licenses
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {researchCertifications.map((cert, index) => (
@@ -184,6 +184,7 @@ export default function Certifications() {
                 B.S. Computer Science (AI Concentration)
               </p>
               <p className="text-gray-400 mb-2">Minor in Statistics & Business Administration</p>
+              <p className="text-gray-400 mb-2">Dean's List</p>
               <p className="text-gray-300">Expected May 2027</p>
             </div>
           </motion.div>
