@@ -1,6 +1,6 @@
 # Nitesh Kanamarlapudi - Portfolio Website
 
-A modern, responsive portfolio website built with Next.js 14, TypeScript, and Tailwind CSS.
+A modern, responsive portfolio website built with Next.js 16, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -15,11 +15,11 @@ A modern, responsive portfolio website built with Next.js 14, TypeScript, and Ta
   - Projects (Detailed project showcase)
   - Contact (Contact form and information)
 - **SEO Optimized**: Proper metadata and semantic HTML
-- **Fast Performance**: Built with Next.js 14 App Router for optimal performance
+- **Fast Performance**: Built with Next.js 16 App Router for optimal performance
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion

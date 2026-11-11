@@ -25,17 +25,17 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Name */}
-          <Link href="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors">
+          <Link href="/" className="text-xl font-bold text-white hover:text-blue-400 transition-colors whitespace-nowrap shrink-0">
             Nitesh Kanamarlapudi
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          {/* Desktop Navigation: only once the full row fits; narrower screens use the menu button */}
+          <div className="hidden min-[1120px]:flex items-center space-x-4 ml-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
-                className={`px-3 py-2 text-sm font-medium transition-colors ${
+                className={`px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
                   pathname === link.path
                     ? 'text-blue-400 border-b-2 border-blue-400'
                     : 'text-gray-300 hover:text-white'
@@ -49,7 +49,7 @@ export default function Navigation() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-300 hover:text-white p-2"
+            className="min-[1120px]:hidden text-gray-300 hover:text-white p-2"
             aria-label="Toggle menu"
           >
             {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -65,7 +65,7 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-gray-800 border-t border-gray-700"
+            className="min-[1120px]:hidden bg-gray-800 border-t border-gray-700"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navLinks.map((link) => (

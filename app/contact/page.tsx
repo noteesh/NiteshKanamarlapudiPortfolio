@@ -41,7 +41,7 @@ export default function Contact() {
             Let's connect and discuss opportunities
           </p>
           <p className="text-lg text-blue-400 text-center mb-16 font-semibold">
-            Currently open to internship opportunities
+            Incoming Forward Deployed Engineer at Palantir
           </p>
         </SectionWrapper>
 

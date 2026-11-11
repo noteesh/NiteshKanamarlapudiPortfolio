@@ -2,34 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaArrowRight, FaFlask, FaClipboardCheck } from 'react-icons/fa';
+import { FaArrowRight, FaFlask, FaClipboardCheck, FaGithub } from 'react-icons/fa';
 import SectionWrapper from '@/components/SectionWrapper';
 import Footer from '@/components/Footer';
-
-const researchProjects = [
-  {
-    title: 'Multiplayer Coding Efficacy Research',
-    lab: 'NCSU Game2Learn Research Lab',
-    period: 'Dec 2023 - Jun 2024',
-    mentor: 'Yasitha Rajapaksha, Ph.D. Student',
-    description: [
-      'Researched the efficacy of multiplayer coding under mentorship from Computer Science Ph.D. student Yasitha Rajapaksha',
-      'Utilized "BOTS" block-based programming game to run experiments studying young students on the efficacy of learning elementary programming concepts through multiplayer games',
-      'Developed research paper and presented findings at symposium upon study completion',
-    ],
-  },
-  {
-    title: 'Dual-Stack Network Navigation & Security',
-    lab: 'Network Security & AI Research',
-    period: 'Aug 2023 - Feb 2024',
-    mentor: 'Dr. Yuchen Liu',
-    description: [
-      'Initiated Dual-Stack Network Navigation research under guidance from distinguished professor in networking and artificial intelligence, Dr. Yuchen Liu',
-      'Developed comprehensive research plan for implementing advanced network monitoring tools via Python-based solution, utilizing the Scapy library',
-      'Built network monitoring tool using Scapy for packet capturing to analyze risk of malicious users across dual-stack networks through logging and alert mechanisms',
-    ],
-  },
-];
+import { researchProjects } from '@/lib/content';
 
 const researchLicenses = [
   {
@@ -87,7 +63,9 @@ export default function Research() {
                   </div>
                   <div className="text-gray-400 mt-2 md:mt-0">{project.period}</div>
                 </div>
-                <p className="text-gray-400 mb-3 italic">Mentor: {project.mentor}</p>
+                {project.mentor && (
+                  <p className="text-gray-400 mb-3 italic">Mentor: {project.mentor}</p>
+                )}
                 <ul className="space-y-3">
                   {project.description.map((item, i) => (
                     <li key={i} className="text-gray-300 flex">
@@ -96,6 +74,17 @@ export default function Research() {
                     </li>
                   ))}
                 </ul>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center mt-6 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+                  >
+                    <FaGithub className="mr-2" />
+                    View Code
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>

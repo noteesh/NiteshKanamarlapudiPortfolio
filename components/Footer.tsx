@@ -90,7 +90,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Built With</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Portfolio crafted with <span className="text-blue-400 font-medium">Next.js 14</span>, <span className="text-blue-400 font-medium">TypeScript</span>, <span className="text-blue-400 font-medium">Tailwind CSS</span>, and <span className="text-blue-400 font-medium">Framer Motion</span> :)
+              Portfolio crafted with <span className="text-blue-400 font-medium">Next.js 16</span>, <span className="text-blue-400 font-medium">TypeScript</span>, <span className="text-blue-400 font-medium">Tailwind CSS</span>, and <span className="text-blue-400 font-medium">Framer Motion</span> :)
             </p>
           </div>
         </div>

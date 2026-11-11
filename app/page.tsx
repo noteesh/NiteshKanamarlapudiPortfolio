@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaAws } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaAws, FaTrophy } from 'react-icons/fa';
 import { SiPython, SiJavascript, SiReact, SiTensorflow, SiPytorch, SiAmazon, SiDocker } from 'react-icons/si';
 import SectionWrapper from '@/components/SectionWrapper';
 import Footer from '@/components/Footer';
+import { experiences, projects, researchProjects, trophyColor } from '@/lib/content';
 
 export default function Home() {
   return (
@@ -23,11 +24,11 @@ export default function Home() {
               Nitesh Kanamarlapudi
             </h1>
             <p className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-4">
-              ML Engineer & Full-Stack Developer | NC State CS '27
+              Infrastructure & AI Systems Engineer · Incoming @ Palantir · NC State CS &apos;27
             </p>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-              Software engineering student passionate about AI/ML and building scalable full-stack applications.
-              Experienced in building production ML models and interested in developing features used by millions of users.
+              I build distributed systems and AI systems: networking infrastructure at AWS, authentication at
+              Bank of America, and award-winning multi-agent systems at hackathons.
             </p>
 
             {/* Social Links */}
@@ -86,30 +87,18 @@ export default function Home() {
           <SectionWrapper>
             <h2 className="text-4xl font-bold mb-12 text-center">Featured Experience</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-4xl mx-auto">
-              {/* Bank of America */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-colors"
-              >
-                <div className="text-blue-400 text-sm font-semibold mb-2">June 2026</div>
-                <h3 className="text-xl font-bold mb-2">Software Engineering Intern</h3>
-                <p className="text-gray-400 mb-4">Bank of America</p>
-                <p className="text-gray-300 text-sm">Incoming Summer 2026 Software Engineering Intern</p>
-              </motion.div>
-
-              {/* WorldQuant */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-colors"
-              >
-                <div className="text-blue-400 text-sm font-semibold mb-2">July 2024 - Sept 2024</div>
-                <h3 className="text-xl font-bold mb-2">Machine Learning Engineer</h3>
-                <p className="text-gray-400 mb-4">WorldQuant</p>
-                <ul className="text-gray-300 text-sm space-y-2">
-                  <li>• Improved model performance by 50% using XGBoost, random forests, GARCH</li>
-                  <li>• Built end-to-end ML pipelines with grid search and Bayesian optimization</li>
-                </ul>
-              </motion.div>
+              {experiences.slice(0, 4).map((exp) => (
+                <motion.div
+                  key={exp.company}
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-colors"
+                >
+                  <div className="text-blue-400 text-sm font-semibold mb-2">{exp.period}</div>
+                  <h3 className="text-xl font-bold mb-2">{exp.role}</h3>
+                  <p className="text-gray-400 mb-4">{exp.company}</p>
+                  <p className="text-gray-300 text-sm">{[exp.team, exp.focus].filter(Boolean).join(' · ')}</p>
+                </motion.div>
+              ))}
             </div>
             <div className="text-center">
               <Link
@@ -130,79 +119,32 @@ export default function Home() {
           <SectionWrapper>
             <h2 className="text-4xl font-bold mb-12 text-center">Featured Projects</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              {/* Reflectra */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-500 transition-colors"
-              >
-                <h3 className="text-2xl font-bold mb-3">Reflectra</h3>
-                <p className="text-gray-400 mb-4">AI Digital Wellness Mirror with RAG and semantic classification</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">React</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">Express</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">Pinecone</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">OpenAI</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">LangChain</span>
-                </div>
-                <p className="text-gray-300 text-sm mb-4">
-                  Chrome extension with RAG system enabling &lt;1s reflection chat latency and 40% better contextual classification
-                </p>
-              </motion.div>
-
-              {/* Live Tournament App */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-500 transition-colors"
-              >
-                <h3 className="text-2xl font-bold mb-3">Live Tournament & Court Management App</h3>
-                <p className="text-gray-400 mb-4">Real-time tournament platform for 500+ concurrent users</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">React Native</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">Docker</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">Node.js</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">AWS</span>
-                </div>
-                <p className="text-gray-300 text-sm mb-4">
-                  Real-time tournament brackets for 100 teams with 35% engagement boost and custom queue algorithm reducing congestion by 25%
-                </p>
-              </motion.div>
-
-              {/* Facial Emotion Recognition */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-500 transition-colors"
-              >
-                <h3 className="text-2xl font-bold mb-3">Facial Emotion Recognition</h3>
-                <p className="text-gray-400 mb-4">Real-time emotion detection with Vision Transformer</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">OpenCV</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">Vision Transformer</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">TensorFlow</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">Keras</span>
-                </div>
-                <p className="text-gray-300 text-sm mb-4">
-                  88% accuracy emotion recognition model deployed to production with Firebase pipeline and CI/CD automation
-                </p>
-              </motion.div>
-
-              {/* E-commerce Platform */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-500 transition-colors"
-              >
-                <h3 className="text-2xl font-bold mb-3">Full-Stack E-commerce Platform</h3>
-                <p className="text-gray-400 mb-4">Scalable platform supporting 1000+ concurrent users</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">React</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">Node.js</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">MongoDB</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">JWT</span>
-                  <span className="text-xs bg-gray-700 px-2 py-1 rounded">WebSockets</span>
-                </div>
-                <p className="text-gray-300 text-sm mb-4">
-                  Full-stack platform with Redux, JWT authentication, and real-time features for seamless transactions
-                </p>
-              </motion.div>
+              {projects.slice(0, 4).map((project) => (
+                <motion.div
+                  key={project.title}
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-purple-500 transition-colors"
+                >
+                  <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
+                  <p className="text-gray-400 text-sm mb-3">{project.date}</p>
+                  {project.awards.length > 0 && (
+                    <div className="flex flex-col gap-1 mb-3">
+                      {project.awards.map((award) => (
+                        <span key={award.label} className="inline-flex items-center text-sm font-semibold text-gray-200">
+                          <FaTrophy className={`mr-2 flex-shrink-0 ${trophyColor[award.place]}`} />
+                          {award.label}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 5).map((tech) => (
+                      <span key={tech} className="text-xs bg-gray-700 px-2 py-1 rounded">{tech}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
             </div>
             <div className="text-center">
               <Link
@@ -344,38 +286,22 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <SectionWrapper>
             <h2 className="text-4xl font-bold mb-12 text-center">Featured Research</h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-4xl mx-auto">
-              {/* Multiplayer Coding Research */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-colors"
-              >
-                <h3 className="text-xl font-bold mb-2">Multiplayer Coding Efficacy Research</h3>
-                <p className="text-blue-400 font-semibold mb-1 text-sm">NCSU Game2Learn Research Lab</p>
-                <p className="text-gray-400 mb-3 text-sm">Dec 2023 - Jun 2024</p>
-                <p className="text-gray-300 text-sm mb-3">
-                  Studied the efficacy of multiplayer coding games for teaching elementary programming concepts to young students
-                </p>
-                <p className="text-gray-400 text-xs italic">
-                  Mentor: Yasitha Rajapaksha, Ph.D. Student
-                </p>
-              </motion.div>
-
-              {/* Network Security Research */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-colors"
-              >
-                <h3 className="text-xl font-bold mb-2">Dual-Stack Network Navigation & Security</h3>
-                <p className="text-blue-400 font-semibold mb-1 text-sm">Network Security & AI Research</p>
-                <p className="text-gray-400 mb-3 text-sm">Aug 2023 - Feb 2024</p>
-                <p className="text-gray-300 text-sm mb-3">
-                  Developed Python-based network monitoring tool using Scapy for packet analysis and malicious user detection
-                </p>
-                <p className="text-gray-400 text-xs italic">
-                  Mentor: Dr. Yuchen Liu
-                </p>
-              </motion.div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {researchProjects.map((project) => (
+                <motion.div
+                  key={project.title}
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-colors"
+                >
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-blue-400 font-semibold mb-1 text-sm">{project.lab}</p>
+                  <p className="text-gray-400 mb-3 text-sm">{project.period}</p>
+                  <p className="text-gray-300 text-sm mb-3">{project.summary}</p>
+                  {project.mentor && (
+                    <p className="text-gray-400 text-xs italic">Mentor: {project.mentor}</p>
+                  )}
+                </motion.div>
+              ))}
             </div>
             <div className="text-center">
               <Link
@@ -396,7 +322,8 @@ export default function Home() {
           <SectionWrapper>
             <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
             <p className="text-xl text-gray-400 mb-8">
-              Currently open to internship opportunities
+              Whether it&apos;s a role, a project, or just a conversation about distributed systems and AI,
+              my inbox is always open and I&apos;m happy to chat.
             </p>
             <Link
               href="/contact"

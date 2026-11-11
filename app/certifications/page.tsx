@@ -36,7 +36,8 @@ const relevantCoursework = [
   'Data Structures & Algorithms',
   'Operating Systems',
   'ML & Data Analysis',
-  'Generative AI for Computer Systems',
+  'Neural Networks',
+  'Self-Driving Cars',
   'Natural Language Processing',
   'Fundamentals of LLMs',
   'C Programming & Computer Architecture',
@@ -47,14 +48,20 @@ const relevantCoursework = [
 
 const organizations = [
   {
-    name: 'Embedded Machine Learning Club',
-    description: 'Building ML models for edge devices and embedded systems',
+    name: 'Networking & IntelligenCE (NICE) Lab',
+    role: 'Researcher',
+    description: 'LLM-guided deep reinforcement learning for LEO satellite networks',
+  },
+  {
+    name: 'Thinking Machines Club',
+    role: 'Officer',
   },
   {
     name: 'NCSU Game2Learn Research Lab',
+    role: 'Researcher',
     description: 'Research lab focused on educational game development',
   },
-];
+]
 
 export default function Certifications() {
   return (
@@ -132,16 +139,26 @@ export default function Certifications() {
             whileHover={{ scale: 1.01 }}
             className="bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-blue-500 transition-all"
           >
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-2">
-                North Carolina State University
-              </h3>
-              <p className="text-blue-400 font-semibold mb-1">
-                B.S. Computer Science (AI Concentration)
-              </p>
-              <p className="text-gray-400 mb-2">Minor in Statistics & Business Administration</p>
-              <p className="text-gray-400 mb-2">Dean's List</p>
-              <p className="text-gray-300">Expected May 2027</p>
+            <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+              <div className="flex-shrink-0 w-28 h-14 relative">
+                <Image
+                  src="/images/ncstate-logo.svg"
+                  alt="NC State University"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  North Carolina State University
+                </h3>
+                <p className="text-blue-400 font-semibold mb-1">
+                  B.S. Computer Science (AI Concentration)
+                </p>
+                <p className="text-gray-400 mb-2">Minor in Business Administration</p>
+                <p className="text-gray-400 mb-2">Dean's List</p>
+                <p className="text-gray-300">Expected May 2027</p>
+              </div>
             </div>
           </motion.div>
         </SectionWrapper>
@@ -171,15 +188,16 @@ export default function Certifications() {
         {/* Organizations */}
         <SectionWrapper delay={0.4}>
           <h2 className="text-3xl font-bold mb-8 mt-16 text-white">Campus Involvement</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {organizations.map((org, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.02 }}
                 className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-500 transition-all"
               >
-                <h3 className="text-lg font-bold text-white mb-2">{org.name}</h3>
-                <p className="text-gray-400 text-sm">{org.description}</p>
+                <h3 className="text-lg font-bold text-white mb-1">{org.name}</h3>
+                <p className="text-blue-400 font-semibold text-sm mb-2">{org.role}</p>
+                {org.description && <p className="text-gray-400 text-sm">{org.description}</p>}
               </motion.div>
             ))}
           </div>

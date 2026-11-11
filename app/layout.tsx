@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Nitesh Kanamarlapudi | ML Engineer & Full-Stack Developer",
-  description: "Software engineering student passionate about AI/ML and building scalable full-stack applications. NC State CS '27",
+  title: "Nitesh Kanamarlapudi | Infrastructure & AI Systems Engineer",
+  description: "Infrastructure & AI systems engineer. Incoming Forward Deployed Engineer at Palantir. NC State CS '27.",
 };
 
 export default function RootLayout({
