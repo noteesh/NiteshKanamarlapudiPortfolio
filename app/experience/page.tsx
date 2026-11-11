@@ -1,31 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 import SectionWrapper from '@/components/SectionWrapper';
 import Footer from '@/components/Footer';
+import { experiences, type Experience } from '@/lib/content';
 
-const experiences = [
-  {
-    company: 'Bank of America',
-    role: 'Software Engineering Intern',
-    period: 'June 2026',
-    description: [
-      'Incoming Summer 2026 Software Engineering Intern',
-    ],
-  },
-  {
-    company: 'WorldQuant',
-    role: 'Machine Learning Engineer',
-    period: 'July 2024 – September 2024',
-    description: [
-      'Performed exploratory data analysis (EDA) on multi-dimensional datasets (8,000+ observations), uncovering patterns to inform feature engineering and model development.',
-      'Improved model performance by 50% through implementation and tuning of supervised and unsupervised ML algorithms (XGBoost, random forests, GARCH, k-means), evaluated via RMSE and AUC-ROC.',
-      'Built end-to-end ML pipelines for data preprocessing, feature selection, model training, and hyperparameter tuning using grid search and Bayesian optimization, ensuring scalability, reproducibility, and CI/CD readiness with Git and DVC. Developed scalable data ingestion workflows to transform 25,000+ records from RESTful APIs into PostgreSQL schemas for ML use.',
-    ],
-  },
-];
+function ExperienceLogo({ exp }: { exp: Experience }) {
+  if (exp.iconImage) {
+    return (
+      <div className="mr-5 mt-1 flex-shrink-0 w-12 h-12 relative">
+        <Image src={exp.iconImage} alt={exp.company} fill className="object-contain" />
+      </div>
+    );
+  }
+  if (exp.icon) {
+    const Icon = exp.icon;
+    return <Icon size={48} className={`${exp.iconColor ?? 'text-white'} mr-5 mt-1 flex-shrink-0`} aria-label={exp.company} />;
+  }
+  return null;
+}
 
 export default function Experience() {
   return (
@@ -40,28 +36,30 @@ export default function Experience() {
           </p>
         </SectionWrapper>
 
-        <div className="space-y-12">
+        <div className="space-y-6">
           {experiences.map((exp, index) => (
             <SectionWrapper key={index} delay={index * 0.1}>
               <motion.div
                 whileHover={{ scale: 1.01 }}
                 className="bg-gray-800 rounded-lg p-8 border border-gray-700 hover:border-blue-500 transition-all"
               >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <div>
-                    <h2 className="text-2xl font-bold text-white mb-1">{exp.role}</h2>
-                    <h3 className="text-xl text-blue-400 font-semibold">{exp.company}</h3>
+                <div className="flex items-start">
+                  <ExperienceLogo exp={exp} />
+                  <div className="flex-1">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h2 className="text-2xl font-bold text-white mb-1">{exp.role}</h2>
+                        <h3 className="text-xl text-blue-400 font-semibold">{exp.company}</h3>
+                      </div>
+                      <div className="text-gray-400 mt-2 md:mt-0">{exp.period}</div>
+                    </div>
+                    {(exp.team || exp.focus) && (
+                      <p className="text-gray-300 mt-4">
+                        {[exp.team, exp.focus].filter(Boolean).join(' · ')}
+                      </p>
+                    )}
                   </div>
-                  <div className="text-gray-400 mt-2 md:mt-0">{exp.period}</div>
                 </div>
-                <ul className="space-y-3">
-                  {exp.description.map((item, i) => (
-                    <li key={i} className="text-gray-300 flex">
-                      <span className="text-blue-400 mr-3">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             </SectionWrapper>
           ))}

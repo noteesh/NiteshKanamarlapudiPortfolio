@@ -7,10 +7,10 @@ import SectionWrapper from '@/components/SectionWrapper';
 import Footer from '@/components/Footer';
 import {
   SiPython, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs,
-  SiTailwindcss, SiMongodb, SiPostgresql, SiFirebase, SiDocker, SiGit,
+  SiMongodb, SiPostgresql, SiFirebase, SiDocker, SiGit,
   SiTensorflow, SiPytorch, SiScikitlearn, SiAmazon, SiKotlin,
   SiC, SiCplusplus, SiHtml5, SiSpringboot,
-  SiExpress, SiPrisma, SiRedux, SiSocketdotio
+  SiExpress, SiPrisma, SiSocketdotio
 } from 'react-icons/si';
 import { FaCode, FaDatabase } from 'react-icons/fa';
 
@@ -26,7 +26,6 @@ const skillCategories = [
       { name: 'C', icon: SiC, color: 'text-blue-600' },
       { name: 'C++', icon: SiCplusplus, color: 'text-blue-600' },
       { name: 'SQL', icon: FaDatabase, color: 'text-blue-400' },
-      { name: 'R', icon: FaCode, color: 'text-blue-500' },
       { name: 'HTML/CSS', icon: SiHtml5, color: 'text-orange-500' },
     ],
   },
@@ -36,8 +35,6 @@ const skillCategories = [
       { name: 'React', icon: SiReact, color: 'text-cyan-400' },
       { name: 'Next.js', icon: SiNextdotjs, color: 'text-white' },
       { name: 'React Native', icon: SiReact, color: 'text-cyan-400' },
-      { name: 'Redux', icon: SiRedux, color: 'text-purple-500' },
-      { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-400' },
     ],
   },
   {
